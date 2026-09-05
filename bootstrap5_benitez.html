@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Digital Solution</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    :root {
+      --purple-deep: #2e1065;
+      --purple-main: #7e22ce;
+      --purple-light: #a855f7;
+      --purple-soft: #f3e8ff;
+      --purple-glow: rgba(168, 85, 247, 0.4);
+    }
+
+    [data-bs-theme="dark"] {
+      --purple-soft: #1e1b4b;
+      --purple-glow: rgba(168, 85, 247, 0.2);
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    /* Primary Color Overrides */
+    .bg-purple-main { background-color: var(--purple-main) !important; }
+    .bg-purple-soft { background-color: var(--purple-soft) !important; }
+    .text-purple { color: var(--purple-main) !important; }
+    
+    .btn-purple {
+      background-color: var(--purple-main);
+      color: #fff;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    .btn-purple:hover {
+      background-color: var(--purple-deep);
+      color: #fff;
+      box-shadow: 0 0 15px var(--purple-glow);
+    }
+
+    .btn-outline-purple {
+      border: 2px solid var(--purple-main);
+      color: var(--purple-main);
+      transition: all 0.3s ease;
+    }
+    .btn-outline-purple:hover {
+      background-color: var(--purple-main);
+      color: #fff;
+    }
+
+    /* Card Glow Effects */
+    .hover-glow {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-glow:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px var(--purple-glow) !important;
+    }
+
+    /* Floating CSS Butterfly Engine */
+    .butterfly-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .butterfly {
+      position: absolute;
+      font-size: 1.8rem;
+      color: var(--purple-light);
+      opacity: 0.6;
+      animation: floatButterfly 12s infinite ease-in-out;
+      filter: drop-shadow(0 0 8px var(--purple-glow));
+    }
+
+    .bf-1 { top: 15%; left: 10%; animation-duration: 10s; animation-delay: 0s; }
+    .bf-2 { top: 65%; left: 85%; animation-duration: 14s; animation-delay: -3s; }
+    .bf-3 { top: 40%; left: 75%; animation-duration: 11s; animation-delay: -5s; }
+    .bf-4 { top: 80%; left: 15%; animation-duration: 13s; animation-delay: -2s; }
+
+    @keyframes floatButterfly {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+      25% { transform: translate(20px, -30px) rotate(15deg) scale(1.1); }
+      50% { transform: translate(-15px, -60px) rotate(-10deg) scale(0.9); }
+      75% { transform: translate(25px, -30px) rotate(5deg) scale(1.05); }
+      100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg sticky-top bg-body border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-purple fs-4" href="#home">
+        <i class="bi bi-butterfly-fill me-2"></i>Aura Digital
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-2">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <button class="btn btn-outline-purple btn-sm rounded-circle p-2" id="themeToggler" type="button">
+              <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home" class="py-5 bg-purple-soft position-relative">
+    <div class="butterfly-container">
+      <i class="bi bi-butterfly butterfly bf-1"></i>
+      <i class="bi bi-butterfly butterfly bf-2"></i>
+      <i class="bi bi-butterfly butterfly bf-3"></i>
+      <i class="bi bi-butterfly butterfly bf-4"></i>
+    </div>
+
+    <div class="container py-5 text-center position-relative" style="z-index: 2;">
+      <span class="badge bg-purple-main text-white rounded-pill px-3 py-2 mb-3 shadow-sm">
+        <i class="bi bi-magic me-1"></i> v3.0 Butterfly Metamorphosis
+      </span>
+      <h1 class="display-3 fw-extrabold text-body-emphasis mb-3">Transform Your Digital Presence</h1>
+      <p class="lead text-body-secondary mx-auto mb-4" style="max-width: 650px;">
+        Flourish with elegant web architectures, butterfly-smooth user experiences, and high-converting software ecosystems designed for modern tech brands.
+      </p>
+      <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+        <a href="#pricing" class="btn btn-purple btn-lg px-4 gap-3 shadow">Get Started Free</a>
+        <a href="#services" class="btn btn-outline-purple btn-lg px-4">Explore Services</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="py-4 bg-purple-main text-white">
+    <div class="container">
+      <div class="row text-center g-3">
+        <div class="col-6 col-md-3">
+          <div class="h2 fw-bold mb-0">99.9%</div>
+          <small class="text-white-50">Uptime Reliability</small>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="h2 fw-bold mb-0">250+</div>
+          <small class="text-white-50">Projects Deployed</small>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="h2 fw-bold mb-0">15ms</div>
+          <small class="text-white-50">Average Latency</small>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="h2 fw-bold mb-0">24/7</div>
+          <small class="text-white-50">Expert Support</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold text-purple">Our Specialized Services</h2>
+        <p class="text-body-secondary">Comprehensive digital solutions tailored for your growth</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm hover-glow p-4">
+            <div class="card-body">
+              <i class="bi bi-palette-fill text-purple display-5 mb-3"></i>
+              <h3 class="h5 fw-bold">UI/UX Metamorphosis</h3>
+              <p class="text-body-secondary">Redesign outdated interfaces into stunning, intuitive user journeys that retain clients.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm hover-glow p-4">
+            <div class="card-body">
+              <i class="bi bi-code-slash text-purple display-5 mb-3"></i>
+              <h3 class="h5 fw-bold">Full-Stack Development</h3>
+              <p class="text-body-secondary">Scalable web application development backed by modern frameworks and RESTful APIs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm hover-glow p-4">
+            <div class="card-body">
+              <i class="bi bi-graph-up-arrow text-purple display-5 mb-3"></i>
+              <h3 class="h5 fw-bold">Growth Strategy</h3>
+              <p class="text-body-secondary">Data-driven marketing and SEO optimization to make your application soar above rivals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="py-5 bg-purple-soft">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Why Choose Aura?</h2>
+        <p class="text-body-secondary">Built with modern speed, ultimate security, and elegant visuals</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm hover-glow text-center p-4">
+            <div class="card-body">
+              <div class="text-purple display-5 mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
+              <h3 class="h5 fw-bold">Ultra Fast Performance</h3>
+              <p class="text-body-secondary">Optimized code structures ensuring sub-second load speeds across all screen devices.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm hover-glow text-center p-4">
+            <div class="card-body">
+              <div class="text-purple display-5 mb-3"><i class="bi bi-shield-lock-fill"></i></div>
+              <h3 class="h5 fw-bold">Enterprise Security</h3>
+              <p class="text-body-secondary">Bank-grade client validation and encrypted protocol defenses built-in by default.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-sm hover-glow text-center p-4">
+            <div class="card-body">
+              <div class="text-purple display-5 mb-3"><i class="bi bi-butterfly"></i></div>
+              <h3 class="h5 fw-bold">Fluid Micro-Animations</h3>
+              <p class="text-body-secondary">Delightful micro-interactions and transitions that make navigation feel natural.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Flexible Pricing Plans</h2>
+        <p class="text-body-secondary">Transparent tiers customized for teams of all sizes</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-6">
+          <div class="card border-0 shadow-sm h-100 p-4 text-center hover-glow">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h4 fw-bold">Caterpillar Plan</h3>
+              <div class="display-5 fw-bold my-3 text-purple">$19<span class="fs-6 text-body-secondary">/mo</span></div>
+              <ul class="list-unstyled text-body-secondary mb-4 flex-grow-1">
+                <li class="py-2 border-bottom">1 Active Project</li>
+                <li class="py-2 border-bottom">Basic Customization</li>
+                <li class="py-2 border-bottom">Community Support</li>
+                <li class="py-2 text-muted text-decoration-line-through">Butterfly Effects</li>
+              </ul>
+              <button class="btn btn-outline-purple w-100 mt-auto">Choose Plan</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card border-2 border-purple shadow h-100 p-4 text-center hover-glow">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-purple-main mb-2 align-self-center px-3 py-1">Most Popular</span>
+              <h3 class="h4 fw-bold">Chrysalis Pro</h3>
+              <div class="display-5 fw-bold my-3 text-purple">$49<span class="fs-6 text-body-secondary">/mo</span></div>
+              <ul class="list-unstyled text-body-secondary mb-4 flex-grow-1">
+                <li class="py-2 border-bottom">10 Active Projects</li>
+                <li class="py-2 border-bottom">SweetAlert2 Interactivity</li>
+                <li class="py-2 border-bottom">Animated Visuals</li>
+                <li class="py-2 border-bottom">Priority Email Support</li>
+              </ul>
+              <button class="btn btn-purple w-100 mt-auto shadow">Choose Pro</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card border-0 shadow-sm h-100 p-4 text-center hover-glow">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h4 fw-bold">Monarch Enterprise</h3>
+              <div class="display-5 fw-bold my-3 text-purple">$99<span class="fs-6 text-body-secondary">/mo</span></div>
+              <ul class="list-unstyled text-body-secondary mb-4 flex-grow-1">
+                <li class="py-2 border-bottom">Unlimited Projects</li>
+                <li class="py-2 border-bottom">Dedicated SLA Infrastructure</li>
+                <li class="py-2 border-bottom">24/7 Phone & Email Support</li>
+                <li class="py-2 border-bottom">Full Source File Export</li>
+              </ul>
+              <button class="btn btn-outline-purple w-100 mt-auto">Choose Enterprise</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-5 bg-purple-soft">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Frequently Asked Questions</h2>
+        <p class="text-body-secondary">Got questions? We've got answers.</p>
+      </div>
+      <div class="accordion accordion-flush mx-auto shadow-sm rounded-3 p-3 bg-body" id="faqAccordion" style="max-width: 750px;">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              Can I customize the purple theme color?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-body-secondary">
+              Yes! All purple shades are governed by CSS variables (`--purple-main`, `--purple-light`, etc.) at the top of the stylesheet.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              Is dark mode fully supported?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-body-secondary">
+              Absolutely. Our Bootstrap 5 theme switcher smoothly converts light purple accents into deep indigo and dark violet tones.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">What Our Clients Say</h2>
+        <p class="text-body-secondary">Stories from developers and design leaders</p>
+      </div>
+      <div id="testimonialCarousel" class="carousel slide mx-auto" style="max-width: 700px;" data-bs-ride="carousel">
+        <div class="carousel-inner text-center p-5 bg-purple-soft rounded-4 shadow-sm position-relative">
+          <i class="bi bi-butterfly position-absolute top-0 end-0 m-3 text-purple opacity-50 fs-3"></i>
+          <div class="carousel-item active">
+            <p class="lead fst-italic mb-3">"The purple theme overhaul transformed our brand identity completely. The butterfly animations are subtle and mesmerizing!"</p>
+            <h4 class="h6 fw-bold mb-0 text-purple">Juan Dela Cruz</h4>
+            <small class="text-body-secondary">Lead Developer — Digital Creative Lab</small>
+          </div>
+          <div class="carousel-item">
+            <p class="lead fst-italic mb-3">"Flawless dark mode support and responsive design. This layout gave us everything we needed out of the box."</p>
+            <h4 class="h6 fw-bold mb-0 text-purple">Maria Santos</h4>
+            <small class="text-body-secondary">UI/UX Designer — Studio Violet</small>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon filter-dark" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon filter-dark" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-5 bg-purple-soft">
+    <div class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <div class="text-center mb-4">
+            <h2 class="fw-bold">Send Us a Message</h2>
+            <p class="text-body-secondary">We’d love to help you build your next project.</p>
+          </div>
+          <form id="contactForm" class="bg-body p-4 p-md-5 rounded-4 shadow-sm">
+            <div class="mb-3">
+              <label for="fullName" class="form-label fw-bold">Full Name</label>
+              <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
+            </div>
+            <div class="mb-3">
+              <label for="emailAddress" class="form-label fw-bold">Email Address</label>
+              <input type="email" class="form-control" id="emailAddress" placeholder="john@example.com" required>
+            </div>
+            <div class="mb-3">
+              <label for="messageContent" class="form-label fw-bold">Message</label>
+              <textarea class="form-control" id="messageContent" rows="4" placeholder="Tell us about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-purple w-100 py-2 shadow">
+              <i class="bi bi-send-fill me-2"></i>Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 border-top text-center text-body-secondary bg-body">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 Aura Digital Solutions. All Rights Reserved. Built with <i class="bi bi-butterfly-fill text-purple"></i></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // 1. Dark/Light Theme Switcher Logic
+    const themeToggler = document.getElementById('themeToggler');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlElement = document.documentElement;
+
+    themeToggler.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-bs-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      htmlElement.setAttribute('data-bs-theme', newTheme);
+      
+      if (newTheme === 'dark') {
+        themeIcon.classList.replace('bi-moon-stars-fill', 'bi-sun-fill');
+      } else {
+        themeIcon.classList.replace('bi-sun-fill', 'bi-moon-stars-fill');
+      }
+    });
+
+    // 2. Contact Form SweetAlert2 Submission
+    const contactForm = document.getElementById('contactForm');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('fullName').value;
+
+      Swal.fire({
+        title: 'Message Sent!',
+        text: `Thank you, ${name}. Your message has flown into our inbox!`,
+        icon: 'success',
+        confirmButtonColor: '#7e22ce'
+      });
+
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
